@@ -60,6 +60,14 @@ namespace CalcTestProject
 	{
 	    _outputHelper.WriteLine(_guid.ToString());
 	}
+
+	[Fact]
+	public void StringAssertion()
+	{
+		var fullName = _sut.fullName;
+
+		fullName.Should().Be("Vishal");
+	}
 	 
 	public void Dispose()
 	{
