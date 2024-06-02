@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CalculateLibraryMain;
 using Xunit.Abstractions;
+using FluentAssertions;
 
 
 namespace CalcTestProject
@@ -45,7 +46,8 @@ namespace CalcTestProject
 	    var res = _sut.Add(a, b);
 
 	    //assert
-	    Assert.Equal(expected, res); //assert versus the actual versus the 
+	    //Assert.Equal(expected, res); //assert versus the actual versus the 
+		res.Should().Be(expected);
 	}
 
 	[Fact]
