@@ -33,6 +33,21 @@ namespace CalcTestProject
 	    Assert.Equal(10, res); //assert versus the actual versus the 
 	}
 
+
+	//parametrized
+	[Theory]
+	[InlineData(1,2,3)]
+	[InlineData(0,1,1)]
+	[InlineData(1,1,2)]
+	public void Add_ShouldAddTwoNumbers_WhenTwoNumbersAreIntegers(int a, int b, int expected)
+	{
+	    //act
+	    var res = _sut.Add(a, b);
+
+	    //assert
+	    Assert.Equal(expected, res); //assert versus the actual versus the 
+	}
+
 	[Fact]
 	public void TestGuid()
 	{
