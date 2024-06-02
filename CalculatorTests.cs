@@ -68,6 +68,16 @@ namespace CalcTestProject
 
 		fullName.Should().Be("Vishal");
 	}
+	[Fact]	
+	public void TestAgeBeingANumber()
+	{
+
+    var age = _sut.Age;
+
+    age.Should().BePositive();
+    age.Should().Be(21);
+    age.Should().BeGreaterThanOrEqualTo(18);
+	}	
 	 
 	public void Dispose()
 	{
