@@ -18,6 +18,10 @@ namespace CalcTestProject
 
 	private readonly ITestOutputHelper _outputHelper;
 
+	public Calculator calc = new (){
+		fullName = "Visal"
+	}
+
 	public CalculatorTests(ITestOutputHelper outputHelper)
 	{
 	    _outputHelper = outputHelper;
@@ -83,6 +87,30 @@ namespace CalcTestProject
 	{
 	    //throw new NotImplementedException();
 	    _outputHelper.WriteLine("Hello from clean up:");
+	}
+
+	[Fact]
+	public void TestObjectExample()
+	{
+		var _testObj = new Calculator()
+		{
+			fullName = "Vishal"
+		};
+
+		var user = _sut.calc;
+
+		Assert.Equal(user, _testObj); //the test fails here due to reference comparisons
+
+		user.Should().BeEquivalentTo(_testObj
+	}
+
+	[Fact]
+	public void TestDivideByZeroException(){
+		var _test = _sut.Divide(1,0);
+
+		Action result = () => Calculator.Divide(1,0);
+
+		_test.Should().Throw<DivideByZeroException>().WithMessage("attempt to divide with zero.")
 	}
     }
 }
